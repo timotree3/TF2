@@ -38,6 +38,7 @@ RUN set -x \
 			echo 'app_update \"${STEAMAPPID}\"'; \
 			echo 'quit'; \
 		} > \"${STEAMAPPDIR}/${STEAMAPP}_update.txt\" \
+	"\
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV SRCDS_FPSMAX=300 \
