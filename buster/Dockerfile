@@ -28,7 +28,7 @@ RUN set -x \
 		libcurl3-gnutls:i386=7.64.0-4+deb10u1 \
 	&& su steam -c \
 		"mkdir -p \"${STEAMAPPDIR}/${STEAMAPP}\" \
-		&& wget "${DLURL}/master/etc/entry.sh" -O \"${STEAMAPPDIR}/entry.sh\" \
+		&& wget \"${DLURL}/master/etc/entry.sh\" -O \"${STEAMAPPDIR}/entry.sh\" \
         	&& chmod 755 \"${STEAMAPPDIR}/entry.sh\" \
 		&& { \
 			echo '@ShutdownOnFailedCommand 1'; \
@@ -38,7 +38,7 @@ RUN set -x \
 			echo 'app_update \"${STEAMAPPID}\"'; \
 			echo 'quit'; \
 		} > \"${STEAMAPPDIR}/${STEAMAPP}_update.txt\" \
-	"\
+	" \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV SRCDS_FPSMAX=300 \
