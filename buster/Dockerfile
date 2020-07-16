@@ -3,12 +3,12 @@
 ###########################################################
 FROM cm2network/steamcmd:root
 
-LABEL maintainer="walentinlamonos@gmail.com"
+LABEL maintainer="timorcb@gmail.com"
 
 ENV STEAMAPPID 232250
 ENV STEAMAPP tf
 ENV STEAMAPPDIR "/home/steam/${STEAMAPP}-dedicated"
-ENV DLURL https://raw.githubusercontent.com/CM2Walki/TF2
+ENV DLURL https://raw.githubusercontent.com/timotree3/TF2
 
 # Run Steamcmd and install TF2
 # Create autoupdate config
@@ -38,7 +38,6 @@ RUN set -x \
 			echo 'app_update \"${STEAMAPPID}\"'; \
 			echo 'quit'; \
 		} > \"${STEAMAPPDIR}/${STEAMAPP}_update.txt\" \
-		&& wget -qO- "${DLURL}/master/etc/cfg.tar.gz" | tar xvzf - -C \"${STEAMAPPDIR}/${STEAMAPP}\"" \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV SRCDS_FPSMAX=300 \
@@ -51,7 +50,7 @@ ENV SRCDS_FPSMAX=300 \
 	SRCDS_TOKEN=0 \
 	SRCDS_RCONPW="changeme" \
 	SRCDS_PW="changeme" \
-	SRCDS_STARTMAP="ctf_2fort" \
+	SRCDS_STARTMAP="koth_harvest_final" \
 	SRCDS_REGION=3 \
         SRCDS_HOSTNAME="New \"${STEAMAPP}\" Server" \
         SRCDS_WORKSHOP_START_MAP=0 \
