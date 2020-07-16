@@ -5,6 +5,7 @@ bash "${STEAMCMDDIR}/steamcmd.sh" +login anonymous \
                                 +quit
 
 # Link configuration files from volume
+rm -rf "${STEAMAPPDIR}/${STEAMAPP}/cfg"
 ln -s -f /cfg "${STEAMAPPDIR}/${STEAMAPP}/cfg"
 
 bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console -autoupdate \
